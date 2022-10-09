@@ -11,7 +11,7 @@ module.exports = {
         lv: 45
       },
     },
-    trustProxy: "127.0.0.1"
+    trustProxy: "0.0.0.0"
   },
   cors: {
     origin: true,
