@@ -1,0 +1,29 @@
+{
+  "name": "api-absen-sek",
+  "version": "1.0.0",
+  "description": "rest api for absen sek app",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app"
+  },
+  "author": "laudryfadian",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/basic-auth": "^4.0.0",
+    "@fastify/cors": "^8.1.0",
+    "@fastify/swagger": "^7.6.1",
+    "@hapi/boom": "^10.0.0",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.7.0",
+    "fastify-swagger": "^4.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "moment-timezone": "^0.5.37",
+    "mongoose": "^6.6.5",
+    "node-cron": "^3.0.2",
+    "nodemon": "^2.0.20",
+    "pino": "^8.6.1"
+  }
+}
