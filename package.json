@@ -2,10 +2,10 @@
   "name": "api-absen-sek",
   "version": "1.0.0",
   "description": "rest api for absen sek app",
-  "main": "app",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app",
+    "dev": "nodemon app.js",
     "start": "nodemon app.js"
   },
   "author": "laudryfadian",
