@@ -36,7 +36,7 @@ const start = async () => {
       timezone: "Asia/Jakarta"
     });
 
-    await fastify.listen({port: port});
+    await fastify.listen({port: port, host: "0.0.0.0"});
     console.log(`API started at port ${port}`);
 
   } catch (e) {
