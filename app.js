@@ -26,8 +26,9 @@ const start = async () => {
     //scheduler every 23:59
     cron.schedule('59 23 * * *', async () => {
       try {
-        const result = await absenSchedule();
-        console.log(result);
+        // const result = await absenSchedule();
+        // console.log(result);
+        await absenSchedule();
       } catch (err) {
         throw Boom.boomify(err);
       }
