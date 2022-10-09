@@ -26,9 +26,8 @@ const start = async () => {
     //scheduler every 23:59
     cron.schedule('59 23 * * *', async () => {
       try {
-        // const result = await absenSchedule();
-        // console.log(result);
-        await absenSchedule();
+        const result = await absenSchedule();
+        console.log(result);
       } catch (err) {
         throw Boom.boomify(err);
       }
@@ -37,7 +36,7 @@ const start = async () => {
       timezone: "Asia/Jakarta"
     });
 
-    await fastify.listen({port: port},"0.0.0.0");
+    await fastify.listen({port: port});
     console.log(`API started at port ${port}`);
 
   } catch (e) {
