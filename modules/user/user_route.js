@@ -48,7 +48,9 @@ async function routes(fastify, opts) {
       try {
         const { email, password } = req.body;
 
-        const login = await User.findOne({email: email, password: createHash(password)}).lean();
+        const cek = createHash(password);
+
+        const login = await User.findOne({email: email, password: cek}).lean();
 
         if (!login) {
           return reply.failed("Email atau password salah", 401);
