@@ -68,11 +68,11 @@ async function routes(fastify, opts) {
   );
 
   fastify.get(
-    "/user/:idUser",
+    "/user/home",
     { schema: getUserById, preHandler: fastify.basicAuth },
     async (req, reply) => {
       try {
-        const user = await User.findById(req.params.idUser).lean();
+        const user = await User.findById(req.user._id).lean();
         if (!user) {
           return reply.failed("User tidak ditemukan", 400);
         }
