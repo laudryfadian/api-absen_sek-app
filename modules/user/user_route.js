@@ -58,7 +58,9 @@ async function routes(fastify, opts) {
 
         const token = jwtsign(email);
 
-        return reply.success("Berhasil login", {token: token});
+        console.log(login);
+
+        return reply.success("Berhasil login", {token: token, user: login});
 
       } catch (e) {
         throw Boom.boomify(e);

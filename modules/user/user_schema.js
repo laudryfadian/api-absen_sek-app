@@ -54,6 +54,18 @@ module.exports = {
             type: "object",
             properties: {
               token: { type: "string" },
+              user: {
+                type: "object",
+                properties: {
+                  id: { type: "string" },
+                  nama: { type: "string" },
+                  email: { type: "string" },
+                  nohp: { type: "string" },
+                  posisi: { type: "string" },
+                  superUser: { type: "boolean" },
+                  gaji: { type: "number" },
+                }
+              },
             },
           },
         },
