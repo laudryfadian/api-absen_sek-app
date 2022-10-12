@@ -1,7 +1,8 @@
 const Boom = require("@hapi/boom");
 const Setting = require("../settings_model");
-const moment = require("moment-timezone");
+const Absen = require("../absent/absen_model");
 const { absencek } = require("./home_schema");
+const moment = require("moment-timezone");
 moment.tz.setDefault("Asia/Jakarta");
 moment.locale("id");
 
@@ -38,6 +39,15 @@ async function routes(fastify, opts) {
 
             return reply.success("Kamu telat !!!", absen);
 
+          }
+
+          const dateNow = moment().format("dddd, DD MMMM YYYY");
+
+          const cek = await Absen.find({idUser: user._id, tanggal: dateNow}).lean();
+
+          if (cek.length == 2) {
+            return reply.success("Selamat beristirahat", absen);
+            
           }
           
         } else {
