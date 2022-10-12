@@ -26,6 +26,10 @@ async function routes(fastify, opts) {
         };
         
         if (user.isAbsen == false) {
+          const dateNow = moment().format("dddd, DD MMMM YYYY");
+
+          const cek = await Absen.find({idUser: user._id, tanggal: dateNow}).lean();
+          
           if (timeNow <= Number(setting.jamDatang)) {
             return reply.success("Belum saatnya absen yaa", absen);
 
@@ -37,18 +41,15 @@ async function routes(fastify, opts) {
           } else if (timeNow >= Number(setting.jamDatang) + Number(setting.keterlambatan) ){
             absen.masuk = true;
 
+            if (cek.length == 2) {
+              return reply.success("Selamat beristirahat", absen);
+              
+            }
             return reply.success("Kamu telat !!!", absen);
 
           }
 
-          const dateNow = moment().format("dddd, DD MMMM YYYY");
 
-          const cek = await Absen.find({idUser: user._id, tanggal: dateNow}).lean();
-
-          if (cek.length == 2) {
-            return reply.success("Selamat beristirahat", absen);
-            
-          }
           
         } else {
           if (timeNow >= Number(setting.jamPulang)) {
