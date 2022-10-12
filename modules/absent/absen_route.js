@@ -66,9 +66,6 @@ async function routes (fastify, opts) {
               tanggal: dateNow,
               ket: "masuk",
             }).lean();
-            if (cekMasuk) {
-              return reply.failed("Kamu sudah absen masuk!", 400);
-            }
 
             await User.findOneAndUpdate({ _id: id }, { isAbsen: false });
 
