@@ -57,7 +57,7 @@ module.exports = {
               user: {
                 type: "object",
                 properties: {
-                  id: { type: "string" },
+                  _id: { type: "string" },
                   nama: { type: "string" },
                   email: { type: "string" },
                   nohp: { type: "string" },
