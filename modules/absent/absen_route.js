@@ -41,7 +41,7 @@ async function routes (fastify, opts) {
               return reply.failed("Kamu sudah absen hari ini!", 400);
             }
 
-            await User.findOneAndUpdate({ idUser: id }, { isAbsen: true });
+            await User.findOneAndUpdate({ _id: id }, { isAbsen: true });
 
             await Absen.create({
               idUser: id,
@@ -70,7 +70,7 @@ async function routes (fastify, opts) {
               return reply.failed("Kamu sudah absen masuk!", 400);
             }
 
-            await User.findOneAndUpdate({ idUser: id }, { isAbsen: false });
+            await User.findOneAndUpdate({ _id: id }, { isAbsen: false });
 
             await Absen.create({
               idUser: id,
