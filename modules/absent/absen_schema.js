@@ -143,8 +143,6 @@ module.exports = {
       properties: {
         idUser: { type: "string" },
         alasan: { type: "string" },
-        lat: { type: "string" },
-        long: { type: "string" },
       },
     },
     response: {
@@ -161,8 +159,6 @@ module.exports = {
               alasan: { type: "string" },
               jam: { type: "string" },
               tanggal: { type: "string" },
-              lat: { type: "string" },
-              long: { type: "string" },
             },
           },
         },

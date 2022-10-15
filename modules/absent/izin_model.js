@@ -15,9 +15,6 @@ const schema = new mongoose.Schema({
   tanggal: {
     type: String,
   },
-  latlong: {
-    type: String
-  },
 });
 
 

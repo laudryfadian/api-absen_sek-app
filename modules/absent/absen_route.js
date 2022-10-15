@@ -172,7 +172,7 @@ async function routes (fastify, opts) {
     { schema: izin, preHandler: fastify.basicAuth },
     async (req, reply) => {
       try {
-        const { idUser, alasan, lat, long } = req.body;
+        const { idUser, alasan } = req.body;
 
         const timeNow = moment().format("HH:mm");
         const dateNow = moment().format("dddd, DD MMMM YYYY");
@@ -190,8 +190,6 @@ async function routes (fastify, opts) {
           alasan: alasan,
           jam: timeNow,
           tanggal: dateNow,
-          lat: lat,
-          long: long,
         });
 
         return reply.success("Berhasil izin", izin);
