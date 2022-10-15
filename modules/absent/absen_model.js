@@ -18,7 +18,10 @@ const schema = new mongoose.Schema({
   foto: {
     type: String,
   },
-  latlong: {
+  lat: {
+    type: String
+  },
+  long: {
     type: String
   },
   approve: {

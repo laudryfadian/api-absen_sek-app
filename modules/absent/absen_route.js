@@ -14,7 +14,7 @@ async function routes (fastify, opts) {
     { schema: absen, preHandler: fastify.basicAuth },
     async (req, reply) => {
       try {
-        const { id, ket, foto, latlong } = req.body;
+        const { id, ket, foto, lat, long } = req.body;
 
         const cekUser = await User.findById(id).lean();
         if (!cekUser) {
@@ -49,7 +49,8 @@ async function routes (fastify, opts) {
               jam: timeNow,
               tanggal: dateNow,
               foto: foto,
-              latlong: latlong,
+              lat: lat,
+              long: long,
             });
 
             return reply.success("Berhasil absen masuk", result);
@@ -75,7 +76,8 @@ async function routes (fastify, opts) {
               jam: timeNow,
               tanggal: dateNow,
               foto: foto,
-              latlong: latlong,
+              lat: lat,
+              long: long,
             });
 
             return reply.success("Berhasil absen pulang!", result);
@@ -170,7 +172,7 @@ async function routes (fastify, opts) {
     { schema: izin, preHandler: fastify.basicAuth },
     async (req, reply) => {
       try {
-        const { idUser, alasan, latlong } = req.body;
+        const { idUser, alasan, lat, long } = req.body;
 
         const timeNow = moment().format("HH:mm");
         const dateNow = moment().format("dddd, DD MMMM YYYY");
@@ -188,7 +190,8 @@ async function routes (fastify, opts) {
           alasan: alasan,
           jam: timeNow,
           tanggal: dateNow,
-          latlong: latlong,
+          lat: lat,
+          long: long,
         });
 
         return reply.success("Berhasil izin", izin);
